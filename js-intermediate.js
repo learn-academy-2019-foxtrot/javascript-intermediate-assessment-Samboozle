@@ -12,10 +12,10 @@ const makeFib = (number) => {
 	if (number === 0) {
 		return 0
 	} else if (number === 1) {
-	 return 1
- } else {
-	 return makeFib(number - 1) + makeFib(number - 2)
- }
+	  return 1
+  } else {
+	  return makeFib(number - 1) + makeFib(number - 2)
+  }
 }
 
 const getFib = (length) => {
@@ -207,7 +207,21 @@ const additionMission = (array) => {
 
 // return array.map((value, index) => value + (index === 0 ? 0 : array[index - 1])) -> almost there, but not quite!
 
+//update: this is my new effort! vvv
+
+const missionAddition = (array) => {
+  const agg = (arr) => {
+    return arr.reduce((total, amount) => total + amount)
+  }
+  return array.map((value, index) => {
+    return agg(array.slice(0, index + 1))
+  })
+}
+
 
 console.log(additionMission(numbersToAdd1));
 console.log(additionMission(numbersToAdd2));
 console.log(additionMission(numbersToAdd3));
+console.log(missionAddition(numbersToAdd1));
+console.log(missionAddition(numbersToAdd2));
+console.log(missionAddition(numbersToAdd3));
